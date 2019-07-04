@@ -23,7 +23,8 @@
     "helmet": "^3.18.0",
     "joi-drupal-hash": "^1.1.0",
     "lodash": "^4.17.11",
-    "mongodb": "^3.2.7"
+    "mongodb": "^3.2.7",
+    "pug": "^2.0.4"
   },
   "devDependencies": {
     "chai": "^4.2.0",

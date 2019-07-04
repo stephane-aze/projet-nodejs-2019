@@ -1,4 +1,7 @@
 
 module.exports = (user) => {
-  return delete user.password;
+  const userDeletePw = {
+    ...user,
+  };
+  return delete userDeletePw.password;
 };

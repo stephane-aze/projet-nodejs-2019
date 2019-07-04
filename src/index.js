@@ -3,11 +3,10 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const helmet = require('helmet');
+const config = require('config');
 const apiRouter = require('./services/api');
 const notFound = require('./middleware/notFound');
 const errors = require('./middleware/errors');
-const config = require('../config/custom-environment-variables');
-
 
 const server = express();
 // Middlware Généraux

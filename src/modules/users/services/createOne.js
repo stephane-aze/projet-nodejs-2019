@@ -1,9 +1,9 @@
 const { createModel } = require('../model');
 const connect = require('../../../clients/mongodb');
 const collections = require('../../../enums/collections');
-const userDeletePassword = require('../helpers/deletePassword');
+/* const userDeletePassword = require('../helpers/deletePassword');
 const userFindOneById = require('../services/findOneById');
-
+*/
 
 module.exports = (userToCreate) => {
   return createModel.validate(userToCreate)

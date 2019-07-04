@@ -25,5 +25,5 @@ server.use(notFound);
 server.use(errors);
 
 server.listen(config.get('port'), () => {
-  // console.log(`Server started at port $('port)`);
+  console.log(`Server started at port ${config.get('port')}`);
 });

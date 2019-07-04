@@ -1,23 +1,20 @@
 const { createModel } = require('../model');
 const connect = require('../../../clients/mongodb');
 const collections = require('../../../enums/collections');
-const UsersFindOneById = require('../../users/services/findOneById');
+const userDeletePassword = require('../helpers/deletePassword');
+const userFindOneById = require('../services/findOneById');
 
 
-module.exports = (listToCreate) => {
-  const list = {
-    ...listToCreate,
-    UsersFindOneById,
-  };
-
-  return createModel.validate(list)
+module.exports = (userToCreate) => {
+  return createModel.validate(userToCreate)
+    // .then(() => userFindOneById(userToCreate.))
     .then(connect)
-    .then(db => db.collection(collections.LISTS))
-    .then(collection => collection.insertOne(list))
+    .then(db => db.collection(collections.USERS))
+    .then(collection => collection.insertOne(userToCreate))
     .then(dbResponse => dbResponse.ops[0]);
 
   /* Can also be write like the
-  return model.validate(listToCreate, model)
+  return model.validate(userToCreate, model)
     .then(() => {
       return connect()
     })
@@ -25,7 +22,7 @@ module.exports = (listToCreate) => {
       return db.collection(collections.LISTS)
     })
     .then((collection) => {
-      return collection.insertOne(listToCreate)
+      return collection.insertOne(userToCreate)
     })
     .then((dbResponse) => {
       return dbResponse.ops[0]

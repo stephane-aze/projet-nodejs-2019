@@ -5,9 +5,9 @@ const collections = require('../../../enums/collections');
 const findOneById = require('./findOneById');
 
 module.exports = (id, listToUpdate) => {
-  return updateModel.validate(listToUpdate)
+  return updateModel.validate()
     .then(() => connect())
-    .then(db => db.collection(collections.LISTS))
+    .then(db => db.collection(collections.USERS))
     .then(collection => collection.updateOne({ _id: ObjectId(id) }, { $set: listToUpdate }))
     .then((dbResponse) => {
       if (dbResponse.matchedCount === 1) {

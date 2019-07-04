@@ -1,10 +1,9 @@
-const createOne = require('../services/createOne');
-
+const deleteOneById = require('../services/deleteOneById');
 
 module.exports = (req, res, next) => {
-  const listToCreate = req.body;
+  const { listId } = req.params;
 
-  createOne(listToCreate)
+  deleteOneById(listId)
     .then((list) => {
       res.json(list);
     })
